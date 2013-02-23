@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ViewJsTest</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>ViewJsTest</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body data-rails-controller="<%= params[:controller] %>" data-rails-action="<%= params[:action] %>">
+    <ul>
+      <li><%= link_to "Partners", partners_path %></li>
+      <li><%= link_to "Offers", offers_path %></li>
+      <li><%= link_to "New offer", new_offer_path %></li>
+    </ul>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+    <h3>JavaScript</h3>
+    <ul class="js-ran"></ul>
+  </body>
 </html>
